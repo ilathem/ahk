@@ -16,16 +16,19 @@ timeLeft := ''
     Notify.Show('Timer', timerText,,,, 'dur=5 pos=TC tali=Center')
     global endTime
     endTime := DateAdd(A_Now, InputBoxObj.value, "m")
-}
-
-; Loop to see if timer is up or stopped
-Loop {
-    global endTime
-    if (endTime == A_Now || endTime == -1) {
-        Notify.Show('Timer', 'timer is finished`n(press Ctrl + F12 to close)',, 'Alarm03',, 'dur=0 pos=TC tali=Center tag=timer')
-        break
+    ; Loop to see if timer is up or stopped
+    Loop {
+        global endTime
+        if (endTime == A_Now || endTime == -1) {
+            Notify.Show('Timer', 'timer is finished`n(press Ctrl + F12 to close)',, 'Alarm03',, 'dur=0 pos=TC tali=Center tag=timer')
+            break
+        }
+        if (SubStr(A_Now, -1) == 0) {
+            MsgBox A_Now
+        }
     }
 }
+
 
 ; Press <F12> to close ending timer message and cancel the timer
 ^F12::{
