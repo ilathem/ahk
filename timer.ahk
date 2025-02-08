@@ -23,9 +23,6 @@ timeLeft := ''
             Notify.Show('Timer', 'timer is finished`n(press Ctrl + F12 to close)',, 'Alarm03',, 'dur=0 pos=TC tali=Center tag=timer')
             break
         }
-        if (SubStr(A_Now, -1) == 0) {
-            MsgBox A_Now
-        }
     }
 }
 
